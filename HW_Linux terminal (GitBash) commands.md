@@ -1,1 +1,84 @@
+Linux terminal (GitBash) commands
 
+=====================
+1) Посмотреть где я - pwd
+2) Создать папку - mkdir foldername
+3) Зайти в папку - cd foldername
+4) Создать 3 папки - mkdir q1 q2 q3mkdir -p
+5) Зайти в любоую папку - cd q1
+6) Создать 5 файлов (3 txt, 2 json) - touch 1.txt 2.txt 3.txt 4.json 5.json 
+7) Создать 3 папки 
+- mkdir q1.1 q1.2 q1.3
+- mkdir -p dir_1/dir_2/dir_3 созданы папки одна в другой
+8. Вывести список содержимого папки - ls -la
+9) + Открыть любой txt файл 
+- cat 1.txt
+- cat > 1.txt
+10) + написать туда что-нибудь, любой текст. 
+- cat >1.txt
+1)one
+2)two
+mv + сохранить и выйти.
+- Ctrl+C
+12) Выйти из папки на уровень выше
+— cd ..
+13) переместить любые 2 файла, которые вы создали, в любую другую папку.
+- mv q1/1.txt q1/2.txt q2/
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку.
+- cp q1/1.txt q1/2.txt q2/
+15) Найти файл по имени
+- find -name 1.txt
+- find -name '1.txt'
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает.-
+- tail -f 1.txt | grep [search_item] 
+grep для поиска внутри текстовых файлов
+- tail -f f/1.txt
+выйти Ctrl+C
+17) вывести несколько первых строк из текстового файла
+-head -n 2 q1/1.txt
+18) вывести несколько последних строк из текстового файла
+-tail -n 2 q1/1.txt
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает.
+- less q1/1.txtq   
+выйти q
+20) вывести дату и время
+- date
+
+Задания под *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5006/terminal-hw-request
+для выполнения задания используем curl
+Вводим
+curl http://162.55.220.72:5006/terminal-hw-request
+получается 
+$ curl http://162.55.220.72:5006/terminal-hw-request
+{
+  "Intro": "Hello!! This is your the first response from server",
+  "Tasks": {
+    "Task_1": "Send the next URL in terminal: http://162.55.220.72:5005/get_meth
+od?name=(set_your_String)&age=(set_your_number)",
+    "result": [
+      "Your_String",
+      "Your_number"
+    ]
+  }
+}
+для выполнения задания вводим значения
+получаем
+$ curl "http://162.55.220.72:5006/get_method?name=DASHA&age=35"
+[
+  "DASHA",
+  "35"
+]
+
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+для автоматизации используем скрипт Bush (#!/bin/bash)
+#!/bin/bash
+mkdir test
+cd test
+mkdir d1 d2 d3
+cd d1
+touch 1.txt 2.txt 3.txt 4.json 5.json
+mkdir new1 new2 new3
+ls -la
+mv 1.txt 2.txt new1
